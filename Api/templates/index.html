@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试工具</title>
+</head>
+<body>
+
+{% if msg %}
+<script>
+     alert('{{ msg }}');
+</script>
+{% endif %}
+
+
+<form action="" method="post">
+    <p>接口名称：<input type="text" name="name"><label><input type="checkbox" name="isauto" value="auto">自动填写</label></p>
+    <p>接口地址：<input type="text" name="url"></p>
+    <p>请求方式：<select name="meth" id="">
+        <option value="GET">GET</option>
+        <option value="POST/DATA">POST/DATA</option>
+        <option value="POST/JSON">POST/JSON</option>
+    </select></p>
+    <p>请求参数：<textarea name="json_data" style="width:400px;height:600px;"></textarea></p>
+    <p>备注：<input type="text" name="remark"></p>
+    <input type="submit">
+
+</form>
+</body>
+</html>
