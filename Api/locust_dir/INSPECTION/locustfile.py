@@ -37,103 +37,203 @@ class User(HttpUser):
 
 
 
-#Tue Jun  9 10:08:43 2020:该代码由工具自动生成，请检查后使用！
+
+#Tue Jun  9 22:54:25 2020:该代码由工具自动生成，请检查后使用！
     @task(1)
-    def __login_POST_DATA(self):
+    def __测试名称(self):
         '''
-        admin登录
+        哈哈
         '''
-        self.Api.api('login_POST_DATA')
+        self.Api.api('测试名称')
 
 
-#Tue Jun  9 10:09:18 2020:该代码由工具自动生成，请检查后使用！
+#Tue Jun  9 22:54:25 2020:该代码由工具自动生成，请检查后使用！
     @task(1)
-    def __LOGIN_POST_DATA(self):
+    def __测试名称(self):
         '''
-        admin登录
+        哈哈
         '''
-        self.Api.api('LOGIN_POST_DATA')
+        self.Api.api('测试名称')
 
 
-#Tue Jun  9 17:07:49 2020:该代码由工具自动生成，请检查后使用！
+#Tue Jun  9 22:56:28 2020:该代码由工具自动生成，请检查后使用！
     @task(1)
-    def __inspectionManagement_inspectionPerson_asySave_POST_DATA(self):
+    def __测试名称(self):
         '''
-        添加视察员
+        哈哈
         '''
-        self.Api.api('inspectionManagement_inspectionPerson_asySave_POST_DATA')
+        self.Api.api('测试名称')
 
 
-#Tue Jun  9 17:12:20 2020:该代码由工具自动生成，请检查后使用！
+#Tue Jun  9 22:56:28 2020:该代码由工具自动生成，请检查后使用！
     @task(1)
-    def __inspectionManagement_inspectionPerson_asySave_GET(self):
+    def __(self):
         '''
-        添加视察员
+        
         '''
-        self.Api.api('inspectionManagement_inspectionPerson_asySave_GET')
+        self.Api.api('')
 
 
-#Tue Jun  9 17:13:50 2020:该代码由工具自动生成，请检查后使用！
+#Tue Jun  9 22:57:13 2020:该代码由工具自动生成，请检查后使用！
     @task(1)
-    def __inspectionManagement_inspectionPerson_asySave_POST_JSON(self):
+    def __测试名称(self):
         '''
-        添加视察员
+        哈哈
         '''
-        self.Api.api('inspectionManagement_inspectionPerson_asySave_POST_JSON')
+        self.Api.api('测试名称')
 
 
-#Tue Jun  9 17:14:17 2020:该代码由工具自动生成，请检查后使用！
+#Tue Jun  9 23:24:11 2020:该代码由工具自动生成，请检查后使用！
     @task(1)
-    def __inspectionManagement_inspectionPerson_asySave_POST_JSON(self):
+    def __(self):
         '''
-        添加视察员
+        
         '''
-        self.Api.api('inspectionManagement_inspectionPerson_asySave_POST_JSON')
+        self.Api.api('')
 
 
-#Tue Jun  9 17:15:12 2020:该代码由工具自动生成，请检查后使用！
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
     @task(1)
-    def __inspectionManagement_inspectionPerson_asySave_POST_JSON(self):
+    def __(self):
         '''
-        添加视察员
+        
         '''
-        self.Api.api('inspectionManagement_inspectionPerson_asySave_POST_JSON')
+        self.Api.api('')
 
 
-#Tue Jun  9 17:19:06 2020:该代码由工具自动生成，请检查后使用！
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
     @task(1)
-    def __inspectionManagement_inspectionPerson_asySave_GET(self):
+    def __(self):
         '''
-        这是备注
+        
         '''
-        self.Api.api('inspectionManagement_inspectionPerson_asySave_GET')
+        self.Api.api('')
 
 
-#Tue Jun  9 18:28:36 2020:该代码由工具自动生成，请检查后使用！
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
     @task(1)
-    def __我的免费隧道(self):
+    def __(self):
         '''
-        添加视察员ddd
+        
         '''
-        self.Api.api('我的免费隧道')
+        self.Api.api('')
 
 
-#Tue Jun  9 18:29:18 2020:该代码由工具自动生成，请检查后使用！
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
     @task(1)
-    def __ggg(self):
+    def __(self):
         '''
-        添加视察员
+        
         '''
-        self.Api.api('ggg')
+        self.Api.api('')
 
 
-#Tue Jun  9 18:34:55 2020:该代码由工具自动生成，请检查后使用！
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
     @task(1)
-    def __我的免费隧道(self):
+    def __(self):
         '''
-        dafdas
+        
         '''
-        self.Api.api('我的免费隧道')
+        self.Api.api('')
+
+
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
+    @task(1)
+    def __(self):
+        '''
+        
+        '''
+        self.Api.api('')
+
+
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
+    @task(1)
+    def __(self):
+        '''
+        
+        '''
+        self.Api.api('')
+
+
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
+    @task(1)
+    def __(self):
+        '''
+        
+        '''
+        self.Api.api('')
+
+
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
+    @task(1)
+    def __(self):
+        '''
+        
+        '''
+        self.Api.api('')
+
+
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
+    @task(1)
+    def __(self):
+        '''
+        
+        '''
+        self.Api.api('')
+
+
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
+    @task(1)
+    def __(self):
+        '''
+        
+        '''
+        self.Api.api('')
+
+
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
+    @task(1)
+    def __(self):
+        '''
+        
+        '''
+        self.Api.api('')
+
+
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
+    @task(1)
+    def __(self):
+        '''
+        
+        '''
+        self.Api.api('')
+
+
+#Tue Jun  9 23:29:50 2020:该代码由工具自动生成，请检查后使用！
+    @task(1)
+    def __(self):
+        '''
+        
+        '''
+        self.Api.api('')
+
+
+#Tue Jun  9 23:59:31 2020:该代码由工具自动生成，请检查后使用！
+    @task(1)
+    def __(self):
+        '''
+        
+        '''
+        self.Api.api('')
+
+
+#Tue Jun  9 23:59:31 2020:该代码由工具自动生成，请检查后使用！
+    @task(1)
+    def __(self):
+        '''
+        
+        '''
+        self.Api.api('')
 
 
 # 设置环境

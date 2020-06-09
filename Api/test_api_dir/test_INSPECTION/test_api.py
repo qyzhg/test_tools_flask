@@ -27,89 +27,158 @@ class test_api(unittest.TestCase, Api):
     def setUp(self) -> None:
         warnings.simplefilter('ignore',ResourceWarning)
         self.s = requests.Session()
-        # self.login()
 
-#Tue Jun  9 10:08:43 2020该代码由工具自动生成，请检查后使用！
-    def test_login_POST_DATA(self):
+#Tue Jun  9 22:54:25 2020该代码由工具自动生成，请检查后使用！
+    def test_测试名称(self):
         '''
-        admin登录
+        哈哈
         '''
-        r = self.api('login_POST_DATA')
+        r = self.api('测试名称')
 
-#Tue Jun  9 10:09:18 2020该代码由工具自动生成，请检查后使用！
-    def test_LOGIN_POST_DATA(self):
+#Tue Jun  9 22:54:25 2020该代码由工具自动生成，请检查后使用！
+    def test_测试名称(self):
         '''
-        admin登录
+        哈哈
         '''
-        r = self.api('LOGIN_POST_DATA')
+        r = self.api('测试名称')
 
-#Tue Jun  9 10:10:44 2020该代码由工具自动生成，请检查后使用！
-    def test_LOGIN_POST_DATA(self):
+#Tue Jun  9 22:56:28 2020该代码由工具自动生成，请检查后使用！
+    def test_测试名称(self):
+        '''
+        哈哈
+        '''
+        r = self.api('测试名称')
+
+#Tue Jun  9 22:56:28 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
         '''
         
         '''
-        r = self.api('LOGIN_POST_DATA')
+        r = self.api('')
 
-#Tue Jun  9 17:07:49 2020该代码由工具自动生成，请检查后使用！
-    def test_inspectionManagement_inspectionPerson_asySave_POST_DATA(self):
+#Tue Jun  9 22:57:13 2020该代码由工具自动生成，请检查后使用！
+    def test_测试名称(self):
         '''
-        添加视察员
+        哈哈
         '''
-        r = self.api('inspectionManagement_inspectionPerson_asySave_POST_DATA')
+        r = self.api('测试名称')
 
-#Tue Jun  9 17:12:20 2020该代码由工具自动生成，请检查后使用！
-    def test_inspectionManagement_inspectionPerson_asySave_GET(self):
+#Tue Jun  9 23:24:11 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
         '''
-        添加视察员
+        
         '''
-        r = self.api('inspectionManagement_inspectionPerson_asySave_GET')
+        r = self.api('')
 
-#Tue Jun  9 17:13:50 2020该代码由工具自动生成，请检查后使用！
-    def test_inspectionManagement_inspectionPerson_asySave_POST_JSON(self):
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
         '''
-        添加视察员
+        
         '''
-        r = self.api('inspectionManagement_inspectionPerson_asySave_POST_JSON')
+        r = self.api('')
 
-#Tue Jun  9 17:14:17 2020该代码由工具自动生成，请检查后使用！
-    def test_inspectionManagement_inspectionPerson_asySave_POST_JSON(self):
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
         '''
-        添加视察员
+        
         '''
-        r = self.api('inspectionManagement_inspectionPerson_asySave_POST_JSON')
+        r = self.api('')
 
-#Tue Jun  9 17:15:12 2020该代码由工具自动生成，请检查后使用！
-    def test_inspectionManagement_inspectionPerson_asySave_POST_JSON(self):
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
         '''
-        添加视察员
+        
         '''
-        r = self.api('inspectionManagement_inspectionPerson_asySave_POST_JSON')
+        r = self.api('')
 
-#Tue Jun  9 17:19:06 2020该代码由工具自动生成，请检查后使用！
-    def test_inspectionManagement_inspectionPerson_asySave_GET(self):
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
         '''
-        这是备注
+        
         '''
-        r = self.api('inspectionManagement_inspectionPerson_asySave_GET')
+        r = self.api('')
 
-#Tue Jun  9 18:28:36 2020该代码由工具自动生成，请检查后使用！
-    def test_我的免费隧道(self):
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
         '''
-        添加视察员ddd
+        
         '''
-        r = self.api('我的免费隧道')
+        r = self.api('')
 
-#Tue Jun  9 18:29:18 2020该代码由工具自动生成，请检查后使用！
-    def test_ggg(self):
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
         '''
-        添加视察员
+        
         '''
-        r = self.api('ggg')
+        r = self.api('')
 
-#Tue Jun  9 18:34:55 2020该代码由工具自动生成，请检查后使用！
-    def test_我的免费隧道(self):
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
         '''
-        dafdas
+        
         '''
-        r = self.api('我的免费隧道')
+        r = self.api('')
 
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
+        '''
+        
+        '''
+        r = self.api('')
+
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
+        '''
+        
+        '''
+        r = self.api('')
+
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
+        '''
+        
+        '''
+        r = self.api('')
+
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
+        '''
+        
+        '''
+        r = self.api('')
+
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
+        '''
+        
+        '''
+        r = self.api('')
+
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
+        '''
+        
+        '''
+        r = self.api('')
+
+#Tue Jun  9 23:29:50 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
+        '''
+        
+        '''
+        r = self.api('')
+
+#Tue Jun  9 23:59:31 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
+        '''
+        
+        '''
+        r = self.api('')
+
+#Tue Jun  9 23:59:31 2020该代码由工具自动生成，请检查后使用！
+    def test_(self):
+        '''
+        
+        '''
+        r = self.api('')
+        # self.login()
