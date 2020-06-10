@@ -1,7 +1,8 @@
 import os
+import sys
 
 from flask import Flask, request, render_template, redirect,url_for
-
+sys.path.append(os.path.abspath('../'))
 from Api.getyaml.json_to_yaml import json_to_yaml, make_locustfile, make_apifile
 from Api.public.WriteJson import write_json
 from Api.public.start import start_project
@@ -102,3 +103,6 @@ def cs():
         # print(a)
         context = Msg(a)
         return render_template('cs.html',PROJECT_NAME = PROJECT_NAME,**context)
+
+if __name__ == '__main__':
+    app.run()
