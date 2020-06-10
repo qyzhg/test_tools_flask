@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div>
+                <h5>当前操作的项目为：</h5>
+                <h3 style="color: #d9534f">{{ PROJECT_NAME }}</h3>
+                <h5>(如需更换，请自行设置settings文件}</h5>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div>
+                <h2>邮件联系人</h2>
+                    <table class="table table-striped table-hover">
+                        <tr>
+                            <td>邮箱地址</td>
+                            <td>姓名</td>
+                            <td>职务</td>
+                            <td>状态</td>
+                        </tr>
+                        <tr>
+                            {% for email in email_list %}
+                                <td>{{ email.email }}</td>
+                                <td>{{ email.name }}</td>
+                                <td>{{ email.duty }}</td>
+                                <td>{{ email.state }}</td>
+                                </tr>
+                            {% endfor %}
+                    </table>
+
+                </div>
+            </div>
+            <hr>
+                <div>
+
+                <form action="" method="post">
+
+                    <div class="checkbox"><label>
+                        发送邮件？
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="isauto" checked="checked">
+                    </label>
+                        <br><br><br>
+                        <p>
+                            <button type="submit" class="btn btn-default">开始执行</button>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
