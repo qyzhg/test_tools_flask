@@ -16,7 +16,6 @@
     <title>测试工具</title>
 </head>
 <body>
-
 <div class="container">
     <div class="header clearfix">
         <nav>
@@ -31,7 +30,43 @@
     <div class="jumbotron">
         <h1>接口&性能脚本自动生成</h1>
         <p class="lead">内部测试项目，稳定性和准确性未知，不可完全替代手动写脚本</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">预留按钮，新建项目</a></p>
+        <p>
+            <a class="btn btn-lg btn-success" href="/" role="button">生成脚本</a>
+            <a class="btn btn-lg btn-success" href="/start" role="button">新建项目</a>
+            <a class="btn btn-lg btn-success" href="#" role="button">根据yaml生成脚本</a>
+        </p>
+        <p>
+            <a class="btn btn-lg btn-primary" href="#" role="button">执行接口测试</a>
+            <a class="btn btn-lg btn-primary" href="#" role="button">执行性能测试</a>
+        </p>
+    </div>
+    <div>
+
+        {% if msg %}
+            {% for i in msg %}
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <strong>Success!</strong> {{ i }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if warning %}
+            {% for i in warning %}
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <strong>Warning!</strong> {{ i }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if danger %}
+            {% for i in danger %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <strong>Danger!</strong> {{ i }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+
     </div>
     {% block body %}
     {% endblock body %}

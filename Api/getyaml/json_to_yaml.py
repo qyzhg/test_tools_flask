@@ -44,7 +44,7 @@ def json_to_yaml(name, url, meth, case_path, remark):
     meth = meth.upper()
     if 'JSON' not in meth and 'DATA' not in meth and 'GET' not in meth:
         print('meth参数输入有误，请使用--help参数查看帮助')
-        return ('meth参数输入有误，请使用--help参数查看帮助')
+        return {'2':'meth参数输入有误，请使用--help参数查看帮助'}
     with open(JSON_FILE, 'r', encoding='utf-8') as f:
         try:
             dict_f = ast.literal_eval(str(f.read()))
@@ -72,27 +72,31 @@ def json_to_yaml(name, url, meth, case_path, remark):
         with open(case_path, 'w+', encoding='utf-8') as case_file:
             print(ruamel.yaml.dump(dict_var, Dumper=ruamel.yaml.RoundTripDumper, allow_unicode=True), file=case_file)
             print('已生成接口配置文件：' + case_path)
-            return ('成功生成接口配置文件!')
+            return {'0':'成功生成接口配置文件!'}
     except FileNotFoundError:
         print('项目目录不存在，请检查项目目录和settings文件中的PROJECT_NAME配置!')
-        return ('项目目录不存在，请检查项目目录和settings文件中的PROJECT_NAME配置!')
+        return {'2':'项目目录不存在，请检查项目目录和settings文件中的PROJECT_NAME配置!'}
 
 
 def make_locustfile(name, remark=''):
-    WriteTestCase(filepath=LOCUSTFILE_FILE,
+    try:
+        WriteTestCase(filepath=LOCUSTFILE_FILE,
 
-                  linenum=-22,
+                      linenum=-22,
 
-                  content=f"\n#{t}:该代码由工具自动生成，请检查后使用！\n    "
-                          "@task(1)\n    "
-                          f"def __{name}(self):\n"
-                          f"        '''\n"
-                          f"        {remark}\n"
-                          f"        '''\n"
-                          f"        self.Api.api('{name}')\n\n"
-                  )
+                      content=f"\n#{t}:该代码由工具自动生成，请检查后使用！\n    "
+                              "@task(1)\n    "
+                              f"def __{name}(self):\n"
+                              f"        '''\n"
+                              f"        {remark}\n"
+                              f"        '''\n"
+                              f"        self.Api.api('{name}')\n\n"
+                      )
+    except FileNotFoundError:
+        print('目录不存在')
+        return {'2':'目录不存在！'}
     print(F'该方法已生成到性能测试文件下:{LOCUSTFILE_FILE}')
-    return ('成功生成性能测试文件!')
+    return {'0':'成功生成性能测试文件!'}
 
 
 def make_apifile(name, remark=''):
@@ -106,4 +110,4 @@ def make_apifile(name, remark=''):
                           f"        r = self.api('{name}')\n"
                   )
     print(F'该方法已生成到接口测试文件下:{TEST_API_FILE}')
-    return ('成功生成接口测试文件!')
+    return {'0':'成功生成接口测试文件!'}
