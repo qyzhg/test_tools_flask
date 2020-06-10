@@ -15,7 +15,7 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'GET':
-        return render_template('index.html')
+        return render_template('index.html',PROJECT_NAME = PROJECT_NAME)
     elif request.method == 'POST':
         # 获取表单内容
         url = request.form.get('url')
@@ -31,45 +31,50 @@ def index():
 
         if name == '':
             context = Msg([{'2': '如果未现在自动生成接口名为必填项'}])
-            return render_template('index.html',**context)
+            return render_template('index.html',**context,PROJECT_NAME = PROJECT_NAME)
 
         elif url == '':
             context = Msg([{'2':'接口地址为必填项'}])
-            return render_template('index.html',**context)
+            return render_template('index.html',**context,PROJECT_NAME = PROJECT_NAME)
 
         elif remark == '':
             context = Msg([{'2': '备注为必填项'}])
-            return render_template('index.html',**context)
+            return render_template('index.html',**context,PROJECT_NAME = PROJECT_NAME)
         # 写入json文件
         write_json(json_data=json_data)
         # yaml输出路径
         case_path = os.path.join(CASE_DIR, name) + '.yaml'
-        # 执行操作
-        L = list()
-        a = json_to_yaml(remark=remark,
-                         name=name,
-                         url=url,
-                         meth=meth,
-                         case_path=case_path)
-        if '2' not in a.keys():
-            L.append(a)
-            if menu == '1':
-                b = make_locustfile(name=name, remark=remark)
-                c = make_apifile(name=name, remark=remark)
-                L.append(b)
-                L.append(c)
-            if menu == '2':
-                b = make_locustfile(name=name, remark=remark)
-                L.append(b)
-            if menu == '3':
-                c = make_apifile(name=name, remark=remark)
-                L.append(c)
-            context = Msg(L)
-            return render_template('index.html',**context)
+        if os.path.isfile(case_path):
+            #已存在
+            context = Msg([{'1': f'该测试用例已存在，如需再次生成请手动将{case_path}删除或者重命名后再操作'}])
+            return render_template('index.html', **context,PROJECT_NAME = PROJECT_NAME)
         else:
-            L.append(a)
-            context = Msg(L)
-            return render_template('index.html',**context)
+            # 执行操作
+            L = list()
+            a = json_to_yaml(remark=remark,
+                             name=name,
+                             url=url,
+                             meth=meth,
+                             case_path=case_path)
+            if '2' not in a.keys():
+                L.append(a)
+                if menu == '1':
+                    b = make_locustfile(name=name, remark=remark)
+                    c = make_apifile(name=name, remark=remark)
+                    L.append(b)
+                    L.append(c)
+                if menu == '2':
+                    b = make_locustfile(name=name, remark=remark)
+                    L.append(b)
+                if menu == '3':
+                    c = make_apifile(name=name, remark=remark)
+                    L.append(c)
+                context = Msg(L)
+                return render_template('index.html',**context,PROJECT_NAME = PROJECT_NAME)
+            else:
+                L.append(a)
+                context = Msg(L)
+                return render_template('index.html',**context,PROJECT_NAME = PROJECT_NAME)
 
 
 @app.route('/start', methods=['POST', 'GET'])

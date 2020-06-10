@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
 {% block body %}
         <div>
-
         <div class="panel panel-default">
-            当前设置哦项目为：{{ PROJECT_NAME }}
+            <div class="panel-heading"><h5>当前操作的项目为：</h5><h3 style="color: #d9534f">{{ PROJECT_NAME }}</h3>(如需更换，请自行设置settings文件}</div>
             <div class="panel-body">
                 <form method="post">
                     <div class="form-group">
                         <label>接口名称</label>
                         <div class="checkbox"><label>
-                            <input type="checkbox" name="isauto"> 自动生成接口名（推荐）
+                            <input type="checkbox" name="isauto" checked="checked"> 自动生成接口名（推荐）
                         </label>
                         </div>
                         <input type="text" class="form-control" name="name">
