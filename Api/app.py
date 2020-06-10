@@ -7,6 +7,7 @@ from Api.public.WriteJson import write_json
 from Api.public.start import start_project
 from Api.settings import CASE_DIR,HOST,PROJECT_NAME
 from Api.public.msg import Msg
+from Api.public.create_script import create_script
 
 app = Flask(__name__)
 
@@ -83,6 +84,21 @@ def start():
         return render_template('start.html')
     elif request.method == 'POST':
         name = request.form.get('name')
+        if name == '':
+            danger = ['请输入项目名!']
+            return render_template('start.html',danger = danger)
         a = start_project(name)
         context = Msg(a)
         return render_template('start.html',**context)
+
+
+@app.route('/cs',methods=['POST','GET'])
+def cs():
+    if request.method == 'GET':
+        return render_template('cs.html',PROJECT_NAME = PROJECT_NAME)
+    elif request.method == 'POST':
+        menu = request.form.get('menu')
+        a = create_script(PROJECT_NAME,menu)
+        # print(a)
+        context = Msg(a)
+        return render_template('cs.html',PROJECT_NAME = PROJECT_NAME,**context)

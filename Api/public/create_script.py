@@ -24,7 +24,7 @@ from Api.getyaml.json_to_yaml import make_locustfile, make_apifile
 from Api.settings import PROJECT_NAME, CASE_DIR, HOST
 
 
-def create_script(project_name):
+def create_script(project_name,a):
     project_name = project_name.upper()
 
     if project_name == PROJECT_NAME:
@@ -32,7 +32,7 @@ def create_script(project_name):
             case_list = os.listdir(CASE_DIR)
         except FileNotFoundError:
             print('项目还没有创建！请使用 -start 命令创建项目，--help参考帮助')
-            sys.exit(0)
+            return [{'2':'项目还没有创建！'}]
 
         yaml_list = list(filter(lambda x: x[-5:].upper() == '.YAML', case_list))
 
@@ -48,15 +48,15 @@ def create_script(project_name):
             # d = dict()
             # for _ in new_list:
             #     d[_] = (get_remark(_))
-
-            while True:
-                print('请选择生成脚本的类型：\n'
-                      '【1】性能脚本和接口脚本同时生成（默认）\n'
-                      '【2】仅生成性能脚本\n'
-                      '【3】仅生成接口脚本\n'
-                      '【q】quit 退出\n'
-                      )
-                a = input('请输入功能编号：\n')
+            #
+            # while True:
+            #     print('请选择生成脚本的类型：\n'
+            #           '【1】性能脚本和接口脚本同时生成（默认）\n'
+            #           '【2】仅生成性能脚本\n'
+            #           '【3】仅生成接口脚本\n'
+            #           '【q】quit 退出\n'
+            #           )
+                a = a
 
                 if a == '1' or a == '':
                     list(map(__make_locustfile, new_list))
@@ -73,16 +73,25 @@ def create_script(project_name):
 
                 elif a.upper() == 'Q' or a == 'QUIT':
                     sys.exit(0)
-
-                else:
-                    print('选择有误，请重新选择！')
+                #
+                # else:
+                #     print('选择有误，请重新选择！')
 
 
         else:
             print('测试用例文件夹没有测试用例，请检查{case_dir}'.format(case_dir=CASE_DIR))
+            return [{'1':'测试用例文件夹没有测试用例，请检查{case_dir}'.format(case_dir=CASE_DIR)}]
 
     else:
         print('当前输入项目名称与配置文件中的项目名称不符，请检查Api>settings.py文件中的PROJECT参数')
+        return [{'1':'当前输入项目名称与配置文件中的项目名称不符，请检查Api>settings.py文件中的PROJECT参数'}]
+    if a == '1':
+        return [{'0':'性能脚本已生成'},{'0':'接口脚本已生成'}]
+    if a == '2':
+        return [{'0':'性能脚本已生成'}]
+    if a == '3':
+        return [{'0':'接口脚本已生成'}]
+
 
 
 def get_remark(file_name):

@@ -15,7 +15,7 @@
 import os
 
 # 此处配置项目名称.
-PROJECE = 'inspection'
+PROJECE = 'test'
 
 # 此处配置项目路径
 HOST = 'http://10.102.111.117:8093/HCLCNNC/a/'
