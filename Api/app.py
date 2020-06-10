@@ -1,7 +1,10 @@
 import os
 import sys
-
-from flask import Flask, request, render_template, redirect,url_for
+try:
+    from flask import Flask, request, render_template, redirect,url_for
+except ImportError:
+    os.system('pip install flask')
+    from flask import Flask, request, render_template, redirect, url_for
 sys.path.append(os.path.abspath('../'))
 from Api.getyaml.json_to_yaml import json_to_yaml, make_locustfile, make_apifile
 from Api.public.WriteJson import write_json
