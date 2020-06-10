@@ -27,6 +27,7 @@ def DataToJson():
             except:
                 f.writelines('"%s": "%s",' % (data.split('\t')[0].replace('\n', ''), ''))
         f.writelines('}')
+    return '非json格式，正在尝试转换为json格式...'
 
 
 if __name__ == '__main__':

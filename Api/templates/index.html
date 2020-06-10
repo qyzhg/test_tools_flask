@@ -1,132 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>测试工具</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <link href="../static/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js" rel="stylesheet">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+{% extends 'base.html' %}
+{% block body %}
+        <div>
+        {% if warning %}
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Warning!</strong> {{ warning }}
+            </div>
+        {% endif %}
 
-    <title>测试工具</title>
+        {% if msg %}
+            {% for i in msg %}
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <strong>Success!</strong> {{ i }}
+                </div>
+            {% endfor %}
+        {% endif %}
 
-
-<body>
-
-<div class="container">
-    <div class="header clearfix">
-        <nav>
-            <ul class="nav nav-pills pull-right">
-                <li role="presentation"><a href="#">预留按钮位置1</a></li>
-                <li role="presentation"><a href="#">预留按钮位置2</a></li>
-            </ul>
-        </nav>
-        <h3 class="text-muted">预留加logo</h3>
-    </div>
-
-    <div class="jumbotron">
-        <h1>接口&性能脚本自动生成</h1>
-        <p class="lead">内部测试项目，稳定性和准确性未知，不可完全替代手动写脚本</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">预留按钮，新建项目</a></p>
-    </div>
-
-    <div class="row marketing">
-
-    </div>
-
-    {% if msg %}
-        <script>
-            alert('{{ msg }}');
-        </script>
-    {% endif %}
-
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-
-
-            {#<form action="" method="post">#}
-            {#    <p>接口名称：<input type="text" name="name"><label><input type="checkbox" name="isauto" value="auto">自动填写</label></p>#}
-            {#    <p>接口地址：<input type="text" name="url"></p>#}
-            {#    <p>请求方式：<select name="meth" id="">#}
-            {#        <option value="GET">GET</option>#}
-            {#        <option value="POST/DATA">POST/DATA</option>#}
-            {#        <option value="POST/JSON">POST/JSON</option>#}
-            {#    </select></p>#}
-            {#    <p>备注：<input type="text" name="remark"></p>#}
-            {#    <p>#}
-            {#        请选择你要的操作：#}
-            {#        <select name="menu" id="">#}
-            {#            <option value="1">【1】：将文件追加到性能测试脚本文件和接口测试脚本文件中</option>#}
-            {#            <option value="2">【2】：将文件只追加到性能测试脚本文件中</option>#}
-            {#            <option value="3">【3】：将文件只追加到接口测试脚本文件中</option>#}
-            {#            <option value="4">【4】：仅生成yaml文件，不向测试脚本文件中追加</option>#}
-            {#        </select>#}
-            {#    </p>#}
-            {#    <p>请求参数：<textarea name="json_data" style="width:400px;height:600px;"></textarea></p>#}
-            {##}
-            {#    <input type="submit">#}
-            {#</form>#}
-
-
-            <form method="post">
-                <div class="form-group">
-                    <label>接口名称</label>
-                    <div class="checkbox"><label>
-                        <input type="checkbox" name="isauto"> 自动生成接口名（推荐）
-                    </label>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label>接口名称</label>
+                        <div class="checkbox"><label>
+                            <input type="checkbox" name="isauto"> 自动生成接口名（推荐）
+                        </label>
+                        </div>
+                        <input type="text" class="form-control" name="name">
                     </div>
-                    <input type="text" class="form-control" name="name">
-                </div>
 
-                <div class="form-group">
-                    <label>接口地址</label>
-                    <input type="text" class="form-control" name="url">
-                </div>
+                    <div class="form-group">
+                        <label>接口地址</label>
+                        <input type="text" class="form-control" name="url">
+                    </div>
 
-                <div class="form-group">
-                    <label>请求方式</label>
-                    <select name="meth" id="" class="form-control">
-                        <option value="GET">GET</option>
-                        <option value="POST/DATA">POST/DATA</option>
-                        <option value="POST/JSON">POST/JSON</option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label>请求方式</label>
+                        <select name="meth" id="" class="form-control">
+                            <option value="GET">GET</option>
+                            <option value="POST/DATA">POST/DATA</option>
+                            <option value="POST/JSON">POST/JSON</option>
+                        </select>
+                    </div>
 
-                 <div class="form-group">
-                    <label>备注</label>
-                    <input type="text" class="form-control" name="remark">
-                </div>
+                    <div class="form-group">
+                        <label>备注</label>
+                        <input type="text" class="form-control" name="remark">
+                    </div>
 
-                <div class="form-group">
-                    <label>操作：</label>
-                    <select name="menu" id="" class="form-control">
-                                       <option value="1">【1】：将文件追加到性能测试脚本文件和接口测试脚本文件中</option>
-                        <option value="2">【2】：将文件只追加到性能测试脚本文件中</option>
-                        <option value="3">【3】：将文件只追加到接口测试脚本文件中</option>
-                        <option value="4">【4】：仅生成yaml文件，不向测试脚本文件中追加</option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label>操作：</label>
+                        <select name="menu" id="" class="form-control">
+                            <option value="1">【1】：将文件追加到性能测试脚本文件和接口测试脚本文件中</option>
+                            <option value="2">【2】：将文件只追加到性能测试脚本文件中</option>
+                            <option value="3">【3】：将文件只追加到接口测试脚本文件中</option>
+                            <option value="4">【4】：仅生成yaml文件，不向测试脚本文件中追加</option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label>请求参数</label>
-                    <textarea name="json_data" class="form-control" style="height: 300px"></textarea>
-                </div>
+                    <div class="form-group">
+                        <label>请求参数</label>
+                        <textarea name="json_data" class="form-control" style="height: 300px"></textarea>
+                    </div>
 
 
-                <button type="submit" class="btn btn-default">提交</button>
-            </form>
+                    <button type="submit" class="btn btn-default">提交</button>
+                </form>
 
+            </div>
         </div>
     </div>
-
-
-</div> <!-- /container -->
-
-</body>
-</html>
+{% endblock %}

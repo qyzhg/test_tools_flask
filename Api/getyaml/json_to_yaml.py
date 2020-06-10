@@ -72,7 +72,7 @@ def json_to_yaml(name, url, meth, case_path, remark):
         with open(case_path, 'w+', encoding='utf-8') as case_file:
             print(ruamel.yaml.dump(dict_var, Dumper=ruamel.yaml.RoundTripDumper, allow_unicode=True), file=case_file)
             print('已生成接口配置文件：' + case_path)
-            return ('已生成接口配置文件：' + case_path)
+            return ('成功生成接口配置文件!')
     except FileNotFoundError:
         print('项目目录不存在，请检查项目目录和settings文件中的PROJECT_NAME配置!')
         return ('项目目录不存在，请检查项目目录和settings文件中的PROJECT_NAME配置!')
@@ -92,7 +92,7 @@ def make_locustfile(name, remark=''):
                           f"        self.Api.api('{name}')\n\n"
                   )
     print(F'该方法已生成到性能测试文件下:{LOCUSTFILE_FILE}')
-    return (F'该方法已生成到性能测试文件下:{LOCUSTFILE_FILE}')
+    return ('成功生成性能测试文件!')
 
 
 def make_apifile(name, remark=''):
@@ -106,4 +106,4 @@ def make_apifile(name, remark=''):
                           f"        r = self.api('{name}')\n"
                   )
     print(F'该方法已生成到接口测试文件下:{TEST_API_FILE}')
-    return (F'该方法已生成到接口测试文件下:{TEST_API_FILE}')
+    return ('成功生成接口测试文件!')
