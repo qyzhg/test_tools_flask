@@ -12,11 +12,15 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from Api.getyaml.json_to_yaml import json_to_yaml, make_locustfile, make_apifile
 from Api.public.WriteJson import write_json
 from Api.public.start import start_project
-from Api.settings import CASE_DIR, HOST, PROJECT_NAME,EMAIL_ADDRESS
+from Api.settings import BASE_DIR,CASE_DIR, HOST, PROJECT_NAME,EMAIL_ADDRESS
 from Api.public.msg import Msg
 from Api.public.create_script import create_script
+from Api.public.RunTest import Runtest
 
-app = Flask(__name__)
+app = Flask(__name__,
+            template_folder=os.path.join(BASE_DIR,'templates'),
+            static_folder=os.path.join(BASE_DIR,'static')
+            )
 
 
 @app.route('/index', methods=['POST', 'GET'])
@@ -110,19 +114,28 @@ def cs():
 
 @app.route('/runtest',methods=['POST','GET'])
 def runtest():
+    email_list = list()
+    with open(EMAIL_ADDRESS, "r", encoding='utf-8') as f:
+        csv_read = csv.reader(f)
+        for line in csv_read:
+            d = {
+                'email': line[0],
+                'name': line[1],
+                'duty': line[2],
+                'state': line[3]
+            }
+            email_list.append(d)
     if request.method == 'GET':
-        email_list = list()
-        with open(EMAIL_ADDRESS, "r",encoding='utf-8') as f:
-            csv_read = csv.reader(f)
-            for line in csv_read:
-                d = {
-                    'email':line[0],
-                    'name':line[1],
-                    'duty':line[2],
-                    'state':line[3]
-                }
-                email_list.append(d)
         return render_template('runtest.html',PROJECT_NAME = PROJECT_NAME,email_list=email_list[1:])
+
+    elif request.method == 'POST':
+        issend = request.form.get('issend')
+        if issend:
+            a = Runtest(True)
+        else:
+            a = Runtest()
+        context = Msg(a)
+        return render_template('runtest.html',PROJECT_NAME = PROJECT_NAME,email_list=email_list[1:],**context)
 
 
 
