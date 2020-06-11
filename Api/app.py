@@ -17,7 +17,10 @@ from Api.public.msg import Msg
 from Api.public.create_script import create_script
 from Api.public.RunTest import Runtest,runLOCUST
 from Api.public.update import Update
+from concurrent.futures import ThreadPoolExecutor
 
+
+executor = ThreadPoolExecutor(2)
 app = Flask(__name__,
             template_folder=os.path.join(BASE_DIR,'templates'),
             static_folder=os.path.join(BASE_DIR,'static')
@@ -144,9 +147,12 @@ def runlocust():
     if request.method == 'GET':
         return render_template('runlocust.html', PROJECT_NAME=PROJECT_NAME)
     elif request.method == 'POST':
-        # os.system('pip install locust')
-        runLOCUST()
-        return render_template('runlocust.html', PROJECT_NAME=PROJECT_NAME)
+        executor.submit(runlocust_task) #添加异步方法启动locust
+        context = Msg([{'0': 'locust服务启动成功'},{'0': '请访问 http://127.0.0.1:8089/ 进行操作'}])
+        return render_template('runlocust.html', PROJECT_NAME=PROJECT_NAME,**context)
+
+def runlocust_task():
+    runLOCUST()
 
 
 @app.route('/update',methods=['POST','GET'])
