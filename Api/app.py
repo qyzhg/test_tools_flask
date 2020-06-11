@@ -16,6 +16,7 @@ from Api.settings import BASE_DIR,CASE_DIR, HOST, PROJECT_NAME,EMAIL_ADDRESS
 from Api.public.msg import Msg
 from Api.public.create_script import create_script
 from Api.public.RunTest import Runtest,runLOCUST
+from Api.public.update import Update
 
 app = Flask(__name__,
             template_folder=os.path.join(BASE_DIR,'templates'),
@@ -146,6 +147,15 @@ def runlocust():
         # os.system('pip install locust')
         runLOCUST()
         return render_template('runlocust.html', PROJECT_NAME=PROJECT_NAME)
+
+
+@app.route('/update',methods=['POST','GET'])
+def update():
+    if request.method == 'GET':
+        return render_template('update.html')
+    elif request.method == 'POST':
+        context = Msg(Update())
+    return render_template('update.html',**context)
 
 
 if __name__ == '__main__':

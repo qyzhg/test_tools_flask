@@ -36,5 +36,7 @@ def Update():
     #         return
     toolsdir = (os.path.dirname(settings.BASE_DIR))
     os.system(f'cd {toolsdir} && git fetch --all && git reset --hard origin/master && git pull')
+    # print('挡板成功执行')
+    # print(toolsdir)
     print('更新成功')
     return [{'0':'更新成功！'}]

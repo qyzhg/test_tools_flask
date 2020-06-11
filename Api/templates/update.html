@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block body %}
+
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <div>
+                <h3><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" style="color: red">
+
+                </span> 更新系统有可能会引起文件丢失！</h3>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <form action="" method="post">
+                    <p>
+                    <h4>
+                        如果确认需要更新，请将case_dir中的测试用例文件妥善备份
+                    </h4>
+                    </p>
+                    <br>
+                    <br>
+                    <br>
+                    <p>
+                        <button type="submit" class="btn btn-danger">数据已备份，开始更新</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
