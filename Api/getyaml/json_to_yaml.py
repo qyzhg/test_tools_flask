@@ -61,6 +61,7 @@ def json_to_yaml(name, url, meth, case_path, remark):
             with open(JSON_FILE, 'r', encoding='utf-8') as f:
                 dict_f = ast.literal_eval(str(f.read()))
                 dict_var = {
+                    'remark':remark,
                     'name': name,
                     'url': url,
                     'meth': meth,
