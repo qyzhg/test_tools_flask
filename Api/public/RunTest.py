@@ -25,12 +25,10 @@ def runAPITEST(project_namw:str):
     else:
         print('输入项目名与配置项目名不符，请检查输入的项目名和settings文件')
 
-def runLOCUST(a:str):
-    if a.upper() == PROJECT_NAME:
-        print('压力服务已启动，请访问 127.0.0.1:8089 进行测试')
-        os.system(f'python {LOCUSTFILE_FILE}')
-    else:
-        print('输入项目名与配置项目名不符，请检查输入的项目名和settings文件')
+def runLOCUST():
+    print('压力服务已启动，请访问 127.0.0.1:8089 进行测试')
+    os.system(f'python {LOCUSTFILE_FILE}')
+
 
 
 def Runtest(issend = False):

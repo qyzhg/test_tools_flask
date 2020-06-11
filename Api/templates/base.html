@@ -18,10 +18,10 @@
 <body>
 <div class="container">
     <div class="header clearfix">
-        <nav style="display: none">
+        <nav>
             <ul class="nav nav-pills pull-right">
-                <li role="presentation"><a href="#">预留按钮位置1</a></li>
-                <li role="presentation"><a href="#">预留按钮位置2</a></li>
+                <li role="presentation"><a href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>使用帮助</a></li>
+                <li role="presentation" style="display: none"><a href="#">预留按钮位置2</a></li>
             </ul>
         </nav>
         {#        <h3 class="text-muted">预留加logo</h3>#}
@@ -29,7 +29,7 @@
     </div>
 
     <div class="jumbotron">
-        <h1>接口&性能脚本自动生成</h1>
+        <h1>接口&性能脚本自动生成系统</h1>
         <p class="lead">内部测试项目，稳定性和准确性未知，不可完全替代手动写脚本</p>
         <p>
             <a class="btn btn-lg btn-success" href="/" role="button">生成脚本</a>
@@ -38,7 +38,7 @@
         </p>
         <p>
             <a class="btn btn-lg btn-primary" href="/runtest" role="button">执行接口测试</a>
-            <a class="btn btn-lg btn-primary" href="#" role="button">执行性能测试</a>
+            <a class="btn btn-lg btn-primary" href="/runlocust" role="button">执行性能测试</a>
         </p>
     </div>
     <div>
