@@ -47,6 +47,8 @@ def json_to_yaml(name, url, meth, case_path, remark):
         return {'2':'meth参数输入有误，请使用--help参数查看帮助'}
     with open(JSON_FILE, 'r', encoding='utf-8') as f:
         try:
+            # print(str(f.read()))
+            #将字符串转换为字典
             dict_f = ast.literal_eval(str(f.read()))
             dict_var = {
                 'remark': remark,
@@ -56,7 +58,9 @@ def json_to_yaml(name, url, meth, case_path, remark):
                 'params':
                     dict_f
             }
-        except:
+            # print(dict_var)
+        except SyntaxError:
+            #转换form到json
             DataToJson()
             with open(JSON_FILE, 'r', encoding='utf-8') as f:
                 dict_f = ast.literal_eval(str(f.read()))
@@ -68,6 +72,27 @@ def json_to_yaml(name, url, meth, case_path, remark):
                     'params':
                         dict_f
                 }
+        except ValueError:
+            #将文件中引起异常的小写fale和true替换成python兼容的格式
+            print(1)
+            with open(JSON_FILE, 'r', encoding='utf-8') as f1:
+                content = f1.read()
+            # print(content)
+            t = content.replace(': false', ': False').replace(': true', ': True').replace(':false', ':False').replace(
+                ':true', ':True')
+            with open(JSON_FILE, "w") as f2:
+                f2.write(t)
+            with open(JSON_FILE, 'r', encoding='utf-8') as f:
+                dict_f = ast.literal_eval(str(f.read()))
+                dict_var = {
+                    'remark':remark,
+                    'name': name,
+                    'url': url,
+                    'meth': meth,
+                    'params':
+                        dict_f
+                }
+
 
     try:
         with open(case_path, 'w+', encoding='utf-8') as case_file:
