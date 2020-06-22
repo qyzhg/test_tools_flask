@@ -54,7 +54,7 @@ def index():
         meth = request.form.get('meth')
         name = request.form.get('name')
         if request.form.get('isauto'):  # 判断是否勾选自动填写
-            name = (url + '_' + meth.upper()).replace('/', '_')
+            name = (url + '_' + meth.upper()).replace('/', '_').replace('-', '_')
         remark = request.form.get('remark')
         json_data = request.form.get('json_data')
         menu = request.form.get('menu')
