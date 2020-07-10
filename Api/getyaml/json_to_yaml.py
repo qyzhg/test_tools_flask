@@ -79,7 +79,7 @@ def json_to_yaml(name, url, meth, case_path, remark):
                 content = f1.read()
             # print(content)
             t = content.replace(': false', ': False').replace(': true', ': True').replace(':false', ':False').replace(
-                ':true', ':True')
+                ':true', ':True').replace(': null',':"null"')
             with open(JSON_FILE, "w") as f2:
                 f2.write(t)
             with open(JSON_FILE, 'r', encoding='utf-8') as f:
