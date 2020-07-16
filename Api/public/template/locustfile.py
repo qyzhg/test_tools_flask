@@ -19,13 +19,15 @@ from locust import HttpUser, task, between
 from locust.env import Environment
 from locust.stats import stats_printer
 from locust.log import setup_logging
+from Api.settings import HOST
+
 
 setup_logging("INFO", None)
 
 
 class User(HttpUser):
     wait_time = between(1, 3)
-    host = ""
+    host = HOST
 
     def on_start(self):
         self.s = self.client
