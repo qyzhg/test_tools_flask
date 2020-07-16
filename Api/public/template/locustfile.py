@@ -13,7 +13,6 @@ sys.path.append(os.path.dirname
                    (os.path.abspath(__file__))))))
 from Api.public.API import Api
 
-
 import gevent
 from locust import HttpUser, task, between
 from locust.env import Environment
@@ -30,8 +29,7 @@ class User(HttpUser):
     host = HOST
 
     def on_start(self):
-        self.s = self.client
-        self.Api = Api(self.s)
+        self.Api = Api(self.client)
 
 
 
